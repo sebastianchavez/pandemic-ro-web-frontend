@@ -1,0 +1,16 @@
+img {
+    max-width: 100%;
+}
+
+audio {
+    width: 100%;
+}
+
+.body {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    overflow: auto;
+}

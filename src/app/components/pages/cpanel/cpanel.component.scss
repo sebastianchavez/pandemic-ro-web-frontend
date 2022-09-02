@@ -1,0 +1,85 @@
+.content {
+    color: white;
+}
+
+.container-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-button {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-register {
+    width: 10rem;
+}
+
+
+.example-form {
+    width: 100%;
+}
+
+.example-full-width {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.container-form {
+    width: 25%;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 5px;
+}
+
+h1 {
+    font-weight: bold;
+    color: #B33771;
+}
+
+table {
+    margin-top: 3rem;
+    border-radius: 4px;
+    width: 100%;
+    background-color: white;
+    color: #2C3A47;
+    padding: .5rem 0px;
+}
+
+h3 {
+    padding: 0px;
+    margin: 0px;
+}
+
+tr {
+    height: 5rem;
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+
+// @media (max-width: 1024px) {
+//     .container-form {
+//         padding: 2em;
+//         width: 50%;
+//     }
+// }
+
+
+// @media (max-width: 767px) {
+//     .conta.container-forminer-form {
+//         width: 100%;
+//         padding: 1em;
+//     }
+
+//     .container-form {
+//         padding: 2em;
+//         width: 80%;
+//     }
+// }

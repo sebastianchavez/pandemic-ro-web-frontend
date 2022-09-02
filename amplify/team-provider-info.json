@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pandemicrowebfronten-dev-05754-authRole",
+      "UnauthRoleArn": "arn:aws:iam::261757713423:role/amplify-pandemicrowebfronten-dev-05754-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::261757713423:role/amplify-pandemicrowebfronten-dev-05754-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-pandemicrowebfronten-dev-05754-deployment",
+      "UnauthRoleName": "amplify-pandemicrowebfronten-dev-05754-unauthRole",
+      "StackName": "amplify-pandemicrowebfronten-dev-05754",
+      "StackId": "arn:aws:cloudformation:us-east-2:261757713423:stack/amplify-pandemicrowebfronten-dev-05754/24ddff40-2757-11ed-96f1-0655a63fb656",
+      "AmplifyAppId": "d1y4cncqu3loan"
+    }
+  }
+}

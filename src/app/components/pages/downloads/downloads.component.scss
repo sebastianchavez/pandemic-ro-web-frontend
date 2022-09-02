@@ -1,0 +1,46 @@
+.container-download {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+
+    h1 {
+        margin-bottom: 5rem;
+        color: white;
+    }
+
+    .btn-download {
+        cursor: pointer;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 20rem;
+        height: 6rem;
+        border: none;
+        outline: none;
+        background-color: #82589F;
+        color: white;
+
+        img {
+            max-width: 3rem;
+            max-height: 3rem;
+        }
+    }
+
+    .btn-download:active {
+        background-color: #634579;
+    }
+}
+
+@media (max-width:1000px) {
+    .container-download {
+        padding: 1rem;
+    }
+
+    .btn-download {
+        max-width: 15rem;
+    }
+}

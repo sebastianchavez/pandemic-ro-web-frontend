@@ -1,0 +1,20 @@
+<nav [ngClass]="{'active': state}">
+    <div class="menu-link" [ngClass]="{'active': state}">
+        <button *ngFor="let m of menu" (click)="navigateToPage(m.router)" mat-button>{{m.name}}</button>
+        <button *ngIf="!user" mat-button [matMenuTriggerFor]="aboveMenu">Usuario</button>
+        <mat-menu class="btn-dark" #aboveMenu="matMenu" yPosition="above">
+            <button mat-menu-item routerLink="/login">Autenticar usuario</button>
+            <button mat-menu-item routerLink="/registro">Registro de usuario</button>
+        </mat-menu>
+        <button *ngIf="user" mat-button [matMenuTriggerFor]="profile">
+            <img src="assets/imgs/no-profile.jpg" alt="">
+        </button>
+        <mat-menu class="btn-dark" #profile="matMenu" yPosition="above">
+            <button mat-menu-item routerLink="/perfil">Mi perfil</button>
+            <button mat-menu-item (click)="logOut()">Cerrar sesión</button>
+        </mat-menu>
+    </div>
+    <button class="btn-menu" (click)="changeState()">
+        <img src="assets/icons/menu.svg" alt="">
+    </button>
+</nav>
