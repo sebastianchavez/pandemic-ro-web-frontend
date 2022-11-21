@@ -18,6 +18,16 @@ export class RegisterComponent implements OnInit {
   submitted: boolean = false;
   registerForm: FormGroup = new FormGroup({});
   btnLoad: boolean = false;
+  genres: any[] = [
+    {
+      text: 'Femenino',
+      value: 'F'
+    },
+    {
+      text: 'Masculino',
+      value: 'M'
+    }
+  ]
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,6 +52,8 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+      genre: ['', [Validators.required]],
+      user: ['', [Validators.required,Validators.minLength(6)]]
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });
@@ -49,7 +61,13 @@ export class RegisterComponent implements OnInit {
 
   async onSubmit(values: any) {
     this.submitted = true;
-    const { email, password } = values
+    const { email, password, user, genre } = values
+    let ip
+    try {
+      ip = await this.userService.getIp()
+    } catch (error) {
+      this.logger.error(this.idLog,'onSubmit - getIp', {info: 'Error', error})      
+    } 
 
     if (this.registerForm.invalid) {
       return;
@@ -59,7 +77,10 @@ export class RegisterComponent implements OnInit {
     try {
       const request: IRequestRegister = {
         email,
-        password
+        password,
+        user, 
+        genre,
+        ip: ip?.toString() || '0.0.0.0'
       }
       const response = await this.userService.register(request)
       this.logger.log(this.idLog, 'onSubmit', { info: 'Success', response })

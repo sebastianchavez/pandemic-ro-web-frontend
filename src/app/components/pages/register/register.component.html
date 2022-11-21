@@ -17,6 +17,16 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
+                <mat-label>Usuario</mat-label>
+                <input type="text" matInput formControlName="user">
+                <mat-error *ngIf="submitted && f['user'].errors && f['user'].errors['required']">
+                    Usuario es <strong>requerido</strong>
+                </mat-error>
+                <mat-error *ngIf="submitted && f['user'].errors && f['user'].errors['minlength']">
+                    Usuario debe tener <strong>mínimo 6 caracteres</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
                 <mat-label>Contraseña</mat-label>
                 <input type="password" matInput formControlName="password">
                 <mat-error *ngIf="submitted && f['password'].errors && f['password'].errors['required']">
@@ -37,6 +47,17 @@
                 </mat-error>
                 <mat-error *ngIf="submitted && f['confirmPassword'].errors && f['confirmPassword'].errors['minlength']">
                     Confirmar contraseña debe tener <strong>mínimo 6 caracteres</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Género</mat-label>
+                <mat-select formControlName="genre">
+                    <mat-option *ngFor="let g of genres" [value]="g.value">
+                        {{g.text}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="submitted && f['genre'].errors && f['genre'].errors['required']">
+                    Género es <strong>requerido</strong>
                 </mat-error>
             </mat-form-field>
 

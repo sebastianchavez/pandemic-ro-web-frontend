@@ -16,9 +16,7 @@ import { MustMatch } from '../../helpers/must-match.validator';
 export class CpanelComponent implements OnInit {
 
   idLog: string = 'CpanelComponent'
-  stateServer: string = 'ON'
-  usersOn: number = 0;
-  totalUsers: number = 0;
+  loading: boolean = false
   accounts: IAccount[] = []
   constructor(
     public dialog: MatDialog,
@@ -31,16 +29,7 @@ export class CpanelComponent implements OnInit {
   }
 
   async getInfo() {
-    try {
-      const response = await this.userService.getInfoCpanel()
-      this.stateServer = 'ON'
-      this.usersOn = response.connectedUsers
-      this.totalUsers = response.totalUsers
-      this.logger.log(this.idLog, 'getInfo - getInfoCpanel', { info: 'Success', response })
-    } catch (error) {
-      this.stateServer = 'OFF'
-      this.logger.error(this.idLog, 'getInfo - getInfoCpanel', { info: 'Error', error })
-    }
+    this.loading = true
     try {
       const response = await this.userService.getInfoAccounts()
       this.accounts = response;
@@ -48,6 +37,7 @@ export class CpanelComponent implements OnInit {
     } catch (error) {
       this.logger.error(this.idLog, 'getInfo - getInfoAccounts', { info: 'Error', error })
     }
+    this.loading = false
   }
   openDialogRegister() {
     const dialogRef = this.dialog.open(DialogContentAccount, {

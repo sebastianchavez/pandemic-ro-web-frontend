@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { IRequestLogin } from 'src/app/interfaces/login.interface';
 import { AlertService } from 'src/app/services/alert/alert.service';
@@ -23,8 +24,9 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private logger: LoggerService,
     private alertService: AlertService,
-    private router: Router
-  ) { }
+    private router: Router,
+    public dialog: MatDialog,
+    ) { }
 
   get f() {
     return this.loginForm.controls;
@@ -64,6 +66,92 @@ export class LoginComponent implements OnInit {
       this.userService.setUser(response.currentUser)
       this.alertService.toast('Usuario registrado')
       this.router.navigateByUrl('/cpanel')
+    } catch (error: any) {
+      const msg = error.error && error.error.message ? error.error.message : 'Problemas al autenticar, por favor intente más tatde'
+      this.alertService.alert(msg, 'error')
+      this.logger.error(this.idLog, 'onSubmit', { info: 'Error', error })
+    }
+    this.btnLoad = false
+  }
+
+  openDialogRecovery() {
+    const dialogRef = this.dialog.open(DialogContentRecovery, {
+      width: '30rem',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+}
+
+
+@Component({
+  selector: 'recovery-password',
+  templateUrl: 'recovery-password.html',
+  styleUrls: ['./login.component.scss']
+})
+export class DialogContentRecovery implements OnInit {
+
+  idLog: string = 'DialogContentAccount'
+  submitted: boolean = false;
+  recoveryPassForm: FormGroup = new FormGroup({});
+  btnLoad: boolean = false;
+  genres: any[] = [
+    {
+      text: 'Femenino',
+      value: 'F'
+    },
+    {
+      text: 'Masculino',
+      value: 'M'
+    }
+  ]
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogContentRecovery>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private formBuilder: FormBuilder,
+    private alertService: AlertService,
+    private logger: LoggerService,
+    private userService: UserService
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  ngOnInit(): void {
+    this.clearForm()
+  }
+
+  get f() {
+    return this.recoveryPassForm.controls;
+  }
+
+  clearForm() {
+    this.submitted = false;
+    this.recoveryPassForm = new FormGroup({});
+    this.recoveryPassForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
+
+  async onSubmit(values: any) {
+    this.submitted = true;
+    const { email } = values
+
+    if (this.recoveryPassForm.invalid) {
+      return;
+    }
+
+    this.btnLoad = true
+    try {
+      
+      const response = await this.userService.recoveryPassword(email)
+      this.logger.log(this.idLog, 'onSubmit', { info: 'Success', response })
+      this.alertService.toast('Usuario registrado')
+      this.dialogRef.close()
     } catch (error: any) {
       const msg = error.error && error.error.message ? error.error.message : 'Problemas al autenticar, por favor intente más tatde'
       this.alertService.alert(msg, 'error')

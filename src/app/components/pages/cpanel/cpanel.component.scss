@@ -2,12 +2,6 @@
     color: white;
 }
 
-.container-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
 .container-button {
     margin-top: 3rem;
     width: 100%;
@@ -61,6 +55,13 @@ tr {
 
 tr:hover {
     background-color: rgba(0, 0, 0, .1);
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
 }
 
 

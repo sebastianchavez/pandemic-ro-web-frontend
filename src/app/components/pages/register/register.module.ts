@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
     CommonModule,
     RegisterRoutingModule
   ]

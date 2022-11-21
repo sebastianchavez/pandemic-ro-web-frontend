@@ -27,10 +27,10 @@
                 </mat-error>
             </mat-form-field>
 
-            <button type="submit" mat-raised-button [disabled]="btnLoad"
-                class="btn btn-full btn-primary mt-2">Autenticar
-                usuario</button>
-            <button type="button" mat-raised-button class="btn btn-full btn-success mt-2">Recuperar contraseña</button>
+            <button type="submit" mat-raised-button [disabled]="btnLoad" class="btn btn-full btn-primary mt-2">
+                Autenticar usuario
+            </button>
+            <button type="button" mat-raised-button class="btn btn-full btn-success mt-2" (click)="openDialogRecovery()">Recuperar contraseña</button>
         </form>
     </div>
 </div>
