@@ -54,6 +54,35 @@ tbody {
     }
 }
 
+.container-woe {
+    display: flex;
+    justify-content: space-around;
+    img {
+        width: 40%;
+    }
+}
+
+.woe-info-detail{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    padding-left: 2rem;
+    width: 15rem;
+}
+
+.woe-title{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.woe-date{
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 30px;
+}
+
 @media (max-width: 1000px) {
     .info {
         padding: 1rem;

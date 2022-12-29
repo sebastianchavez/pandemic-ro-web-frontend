@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
-  // apiUrl: 'https://api-pandemicro.com',
+  // apiUrl: 'http://localhost:3000',
+  apiUrl: 'https://api-pandemicro.com',
   debug: true
 };
 
