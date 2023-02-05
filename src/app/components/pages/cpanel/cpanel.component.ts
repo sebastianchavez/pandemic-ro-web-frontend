@@ -16,123 +16,31 @@ import { MustMatch } from '../../helpers/must-match.validator';
 export class CpanelComponent implements OnInit {
 
   idLog: string = 'CpanelComponent'
-  loading: boolean = false
-  accounts: IAccount[] = []
-  constructor(
-    public dialog: MatDialog,
-    private userService: UserService,
-    private logger: LoggerService
-  ) { }
-
-  ngOnInit(): void {
-    this.getInfo()
-  }
-
-  async getInfo() {
-    this.loading = true
-    try {
-      const response = await this.userService.getInfoAccounts()
-      this.accounts = response;
-      this.logger.log(this.idLog, 'getInfo - getInfoAccounts', { info: 'Success', response })
-    } catch (error) {
-      this.logger.error(this.idLog, 'getInfo - getInfoAccounts', { info: 'Error', error })
-    }
-    this.loading = false
-  }
-  openDialogRegister() {
-    const dialogRef = this.dialog.open(DialogContentAccount, {
-      width: '30rem',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.getInfo()
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-}
-
-
-@Component({
-  selector: 'dialog-content-account',
-  templateUrl: 'dialog-content-account.html',
-  styleUrls: ['./cpanel.component.scss']
-})
-export class DialogContentAccount implements OnInit {
-
-  idLog: string = 'DialogContentAccount'
-  submitted: boolean = false;
-  registerForm: FormGroup = new FormGroup({});
-  btnLoad: boolean = false;
-  genres: any[] = [
+  menu: number = 0;
+  menus: {
+    value: number;
+    text: string;
+  }[] = [
     {
-      text: 'Femenino',
-      value: 'F'
+      value: 0,
+      text: 'Mis cuentas'
     },
     {
-      text: 'Masculino',
-      value: 'M'
-    }
-  ]
-
+      value: 1,
+      text: 'Premios'
+    },
+    // {
+    //   value: 2,
+    //   text: 'Ranking'
+    // }
+  ];
   constructor(
-    public dialogRef: MatDialogRef<DialogContentAccount>,
-    @Inject(MAT_DIALOG_DATA) public data: IAccount,
-    private formBuilder: FormBuilder,
-    private alertService: AlertService,
-    private logger: LoggerService,
-    private userService: UserService
   ) { }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   ngOnInit(): void {
-    this.clearForm()
   }
 
-  get f() {
-    return this.registerForm.controls;
-  }
-
-  clearForm() {
-    this.submitted = false;
-    this.registerForm = new FormGroup({});
-    this.registerForm = this.formBuilder.group({
-      user: ['', [Validators.required, Validators.minLength(6)]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-      genre: ['', [Validators.required]]
-    }, {
-      validator: MustMatch('password', 'confirmPassword')
-    });
-  }
-
-  async onSubmit(values: any) {
-    this.submitted = true;
-    const { user, password, genre } = values
-
-    if (this.registerForm.invalid) {
-      return;
-    }
-
-    this.btnLoad = true
-    try {
-      const request: IRequestAccount = {
-        userid: user,
-        user_pass: password,
-        sex: genre,
-        last_ip: '0.0.0.0'
-      }
-      const response = await this.userService.registerAccount(request)
-      this.logger.log(this.idLog, 'onSubmit', { info: 'Success', response })
-      this.alertService.toast('Usuario registrado')
-      this.dialogRef.close()
-    } catch (error: any) {
-      const msg = error.error && error.error.message ? error.error.message : 'Problemas al autenticar, por favor intente más tatde'
-      this.alertService.alert(msg, 'error')
-      this.logger.error(this.idLog, 'onSubmit', { info: 'Error', error })
-    }
-    this.btnLoad = false
-  }
+  
+  
 }
+

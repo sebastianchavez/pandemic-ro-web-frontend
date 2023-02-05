@@ -1,69 +1,15 @@
-.content {
+
+mat-button-toggle-group {
+    background-color: transparent !important;
+}
+mat-button-toggle{
+    background-color: transparent !important;
     color: white;
 }
 
-.container-button {
-    margin-top: 3rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.mat-button-toggle-standalone:not([class*=mat-elevation-z]), .mat-button-toggle-group:not([class*=mat-elevation-z]){
+    box-shadow: none;
 }
-
-.btn-register {
-    width: 10rem;
-}
-
-
-.example-form {
-    width: 100%;
-}
-
-.example-full-width {
-    margin-top: 2rem;
-    width: 100%;
-}
-
-.container-form {
-    width: 25%;
-    background-color: white;
-    padding: 3rem;
-    border-radius: 5px;
-}
-
-h1 {
-    font-weight: bold;
-    color: #B33771;
-}
-
-table {
-    margin-top: 3rem;
-    border-radius: 4px;
-    width: 100%;
-    background-color: white;
-    color: #2C3A47;
-    padding: .5rem 0px;
-}
-
-h3 {
-    padding: 0px;
-    margin: 0px;
-}
-
-tr {
-    height: 5rem;
-}
-
-tr:hover {
-    background-color: rgba(0, 0, 0, .1);
-}
-
-.center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5rem;
-}
-
 
 // @media (max-width: 1024px) {
 //     .container-form {

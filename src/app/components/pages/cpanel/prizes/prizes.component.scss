@@ -1,0 +1,40 @@
+
+.container-prize{
+    display: flex;
+    flex-wrap: wrap;
+    mat-card {
+        margin: 1rem;
+    }
+}
+
+.container-title-prize{
+    color: #B33771;
+    text-align: center;
+}
+
+.container-title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.is-not-reclamed {
+    opacity: .3;
+}
+
+.tooltip-dark {
+    background: #000;
+}
+
+.container-footer{
+    text-align: center;
+    margin-top: 5rem;
+    color: white;
+    font-style: italic !important;
+}
+
+@media (max-width: 767px) {
+    .container-prize{
+        justify-content: center;
+    }
+}

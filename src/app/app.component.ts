@@ -62,17 +62,11 @@ export class AppComponent {
   async getInfo() {
     try {
       const response = await this.userService.getInfoCpanel()
-      let ip 
-      try {
-        ip = await this.userService.getIp()
-      } catch (error) {
-        this.logger.error(this.idLog, 'getInfo - getIp', { info: 'Error', error })
-      }
       this.stateServer = 'ON'
       this.usersOn = response.connectedUsers
       this.totalUsers = response.totalUsers
       this.totalAccounts = response.totalAccounts
-      this.logger.log(this.idLog, 'getInfo', { info: 'Success', response, ip })
+      this.logger.log(this.idLog, 'getInfo', { info: 'Success', response })
     } catch (error) {
       this.stateServer = 'OFF'
       this.logger.error(this.idLog, 'getInfo', { info: 'Error', error })

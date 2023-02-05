@@ -1,37 +1,22 @@
 <app-header></app-header>
-<div class="container content animate__animated animate__fadeInUp">
+<div class="container content animate__animated animate__fadeInUp pb-4">
     <div class="card">
-        <div class="container-button">
-            <button type="button" mat-raised-button class="btn btn-primary btn-register" (click)="openDialogRegister()">
-                Registrar cuenta
-            </button>
+        <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style" [(ngModel)]="menu">
+            <mat-button-toggle *ngFor="let m of menus" [value]="m.value">{{m.text}}</mat-button-toggle>
+        </mat-button-toggle-group>
+        
+        <div [ngSwitch]="menu">
+            <div *ngSwitchCase="0">
+                <app-my-accounts></app-my-accounts>
+            </div>
+            <div *ngSwitchCase="1">
+                <app-prizes></app-prizes>
+            </div>
+            <div *ngSwitchCase="2">
+                <app-rank></app-rank>
+            </div>
         </div>
 
-        <div *ngIf="loading" class="center">
-            <mat-spinner></mat-spinner>
-        </div>
-
-        <div class="alert-warning mt-3" *ngIf="accounts.length == 0 && !loading">
-            <strong>No tiene cuentas registradas</strong>
-        </div>
-
-        <div *ngIf="accounts.length > 0">
-            <table>
-                <tbody>
-                    <tr *ngFor="let a of accounts">
-                        <th>
-                            <img src="assets/imgs/poporing.gif" alt="">
-                        </th>
-                        <th>
-                            <h3>Género</h3>
-                            {{a.idAccount.genre}}
-                        </th>
-                        <th>
-                            <h3>{{a.idAccount.user}}</h3>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
     </div>
 </div>

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor/interceptor.service';
+import { PrizesPipe } from './pipes/prizes/prizes.pipe';
 
 @NgModule({
   declarations: [
