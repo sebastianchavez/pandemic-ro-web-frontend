@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IRequestRegister } from 'src/app/interfaces/register.interface';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject, firstValueFrom, lastValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUser } from 'src/app/interfaces/user.interface';
@@ -18,7 +18,7 @@ export class UserService {
   private url3: string = '/api/users/get-info'
   private url4: string = '/api/users/get-accounts'
   private url5: string = '/api/users/register-account'
-  private url6: string = 'http://api.ipify.org/?formsat=json'
+  private url6: string = '/api/users/ip'
   private url7: string = '/api/users/recovery-password'
 
   user: BehaviorSubject<any> = new BehaviorSubject(null);
@@ -54,11 +54,11 @@ export class UserService {
     return firstValueFrom(this.http.post(this.apiUrl + this.url5, request))
   }
 
-  getIp(){
-    return firstValueFrom(this.http.get(this.url6))
+  getIp(): Promise<any>{
+    return firstValueFrom(this.http.get(this.apiUrl + this.url6))
   }
 
   recoveryPassword(email: string){
-    return firstValueFrom(this.http.put(this.url7,{ email }))
+    return firstValueFrom(this.http.put(this.apiUrl + this.url7,{ email }))
   }
 }

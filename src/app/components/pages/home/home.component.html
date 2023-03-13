@@ -66,12 +66,21 @@
                 </div>
                 <img src="assets/imgs/woe.png" alt="">
             </div>
-            <a class="link-ranking mt-3" href="https://ragnatop.org/index.php?a=in&u=schavez-dev"><img
+            <div *ngIf="loading.rank1" class="loading mt-3">
+                Cargando...
+            </div>
+            <a *ngIf="!loading.rank1" class="link-ranking mt-3 pointer" (click)="confirmVote(1, 'https://ragnatop.org/index.php?a=in&u=schavez-dev')"><img
                     src="https://ragnatop.org/button.php?u=schavez-dev&buttontype=static"
                     alt="RagnaTOP - Top Ragnarok Online en Español" /></a>
-            <a class="link-ranking" href="http://www.toprohispano.com/vote/index.php?id=1020" target="_blank">
+            <div *ngIf="loading.rank2" class="loading ">
+                Cargando...
+            </div>
+            <a *ngIf="!loading.rank2" class="link-ranking pointer" (click)="confirmVote(2, 'http://www.toprohispano.com/vote/index.php?id=1020')" target="_blank">
                 <img src="http://www.toprohispano.com/images/boton4.png" border="0"></a>
-            <a class="link-ranking" href='https://www.top100arena.com/category/ro?vote=99473' title='Pandemic Ro'>
+            <div *ngIf="loading.rank3" class="loading ">
+                Cargando...
+            </div>
+            <a *ngIf="!loading.rank3" class="link-ranking pointer" (click)="confirmVote(3, 'https://www.top100arena.com/category/ro?vote=99473')" title='Pandemic Ro'>
                 <img src='https://www.top100arena.com/hit/99473/small' alt='Ragnarok private server'></a>
         </div>
     </div>

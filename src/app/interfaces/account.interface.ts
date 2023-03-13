@@ -1,10 +1,8 @@
 export interface IAccount {
-    idAccount: {
-        genre: string;
-        idAccount: number
-        ragnarokId: number
-        user: string;
-    }
+    genre: string;
+    idAccount: number
+    ragnarokId: number
+    user: string;
 }
 
 export interface IRequestAccount {
