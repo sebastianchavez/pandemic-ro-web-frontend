@@ -1,0 +1,102 @@
+section {
+    background: #CAD3C8;
+    height: 65rem;
+}
+
+.custom-col{
+    margin-top: -18rem;
+}
+
+.title{
+    font: 400 24px/50px Roboto, "Helvetica Neue", sans-serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.subtitle-economy {
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+h2{
+    color: #2C3A47;
+}
+
+h1{
+    color: #2C3A47;
+}
+
+img{
+    margin-top: 5rem;
+    width: 10rem;
+}
+
+.event-text{
+    font: 500 1.6rem/29px Roboto, "Helvetica Neue", sans-serif;
+}
+
+hr {
+    border-color: #2C3A47 !important;
+    border-width: 3px;
+    opacity: 1;
+}
+
+.event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+mat-icon{
+    width: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+}
+
+
+.tooltip {
+    text-transform: none;
+    opacity: 1;
+    background-color: #000000;
+}
+
+.event-left{
+    max-width: 90%;
+}
+
+.event-right{
+    max-width: 10%;
+}
+
+@media (max-width: 1220px) {
+    section {
+        height: 65rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    section {
+        height: 70rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .custom-col {
+        margin-top: 2rem;
+    }
+
+    section{
+        height: 95rem;
+    }
+
+    .event-text{
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+}

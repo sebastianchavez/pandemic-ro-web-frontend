@@ -1,0 +1,46 @@
+<div class="container pb-5">
+    <div class="card card-body">
+        <button type="button" mat-raised-button class="btn btn-success btn-register" (click)="openDialogRegister()">
+            Registrar cuenta
+        </button>
+        <div *ngIf="loading" class="center">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="alert-warning mt-3" *ngIf="accounts.length == 0 && !loading">
+            <strong>No tiene cuentas registradas</strong>
+        </div>
+        <div style="overflow: auto;" *ngIf="accounts.length > 0">
+            <table>
+                <thead>
+                    <th class="ps-3">Cuenta</th>
+                    <th class="text-center">Género</th>
+                    <th class="text-center">Personajes</th>
+                    <th class="text-center">Estado</th>
+                    <th class="text-center">Acción</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of accounts; let i = index" class="line" [ngClass]="{'bg-gray' : i % 2 == 0}">
+                        <th class="ps-3">
+                            {{a.user}}
+                        </th>
+                        <th class="text-center">
+                            {{a.genre}}
+                        </th>
+                        <th class="text-center">
+                            {{a.pjs.length}}
+                        </th>
+                        <th class="text-center">
+                            {{a.state}}
+                        </th>
+                        <th class="text-center">
+                            <mat-icon class="pointer" (click)="openPjDialog(a)">search</mat-icon>
+                            <mat-icon class="pointer" matTooltip="Funcionalidad en construcción" matTooltipPosition="above">lock</mat-icon>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

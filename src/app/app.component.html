@@ -1,24 +1,5 @@
-<div [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}" class="body">
+<div class="body" (scroll)="scroll($event)">
   <app-navbar [menu]="menu" [user]="user"></app-navbar>
-  <div class="card">
-    <div class="container-header">
-      <div class="text">
-        <label for="">Servidor:</label>
-        <label for="">{{stateServer}}</label>
-      </div>
-      <div class="text">
-        <label for="">Usuarios en línea:</label>
-        <label for="">{{usersOn}}</label>
-      </div>
-      <!-- <div class="text">
-        <label for="">Usuarios registrados:</label>
-        <label for="">{{totalUsers}}</label>
-      </div> -->
-      <!-- <div class="text">
-        <label for="">Cuentas registradas:</label>
-        <label for="">{{totalAccounts}}</label>
-      </div> -->
-    </div>
-  </div>
   <router-outlet></router-outlet>
+  <app-footer></app-footer>
 </div>

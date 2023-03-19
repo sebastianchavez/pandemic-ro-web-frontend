@@ -1,0 +1,65 @@
+:host{
+    align-self: center;
+    justify-self: center;
+    display: block;
+    min-height: 100vh;
+    background-color: #CAD3C8 !important;
+    padding-top: 8rem;
+}
+
+.line{
+    height: 2.5rem;
+}
+
+.bg-gray {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #2C3A47;
+    color: white;
+    height: 2.5rem;
+}
+
+.content {
+    color: white;
+}
+
+.container-button {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+}
+
+.btn-register {
+    width: 10rem;
+}
+
+table {
+    margin-top: 3rem;
+    border-radius: 4px;
+    width: 100%;
+    background-color: white;
+    color: #2C3A47;
+    padding: .5rem 0px;
+}
+
+h3 {
+    padding: 0px;
+    margin: 0px;
+}
+
+tr {
+    height: 2rem;
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}

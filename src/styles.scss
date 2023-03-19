@@ -14,17 +14,9 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.card {
+.custom-card {
     padding: 1rem;
     background-color: rgba(0, 0, 0, .5);
-}
-
-.container-fluid {
-    padding: 0 2rem;
-}
-
-.container {
-    padding: 0 10rem;
 }
 
 .mt-1 {
@@ -87,7 +79,7 @@ body {
 
 .btn-primary {
     color: white;
-    background-color: #82589F;
+    background-color: #82589F !important;
 
     button.mat-menu-item {
         color: white !important;
@@ -96,7 +88,7 @@ body {
 }
 
 .btn-success {
-    background-color: #58B19F;
+    background-color: #58B19F !important;
     color: white;
 
     button.mat-menu-item {
@@ -127,9 +119,21 @@ body {
     justify-content: center;
 }
 
+// animaciones
+
+.fadeIn {
+    opacity: 0;
+    transition: all .5s ease;
+    &.active {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 1024px) {
     .container {
         padding: 1rem;
     }
 
 }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

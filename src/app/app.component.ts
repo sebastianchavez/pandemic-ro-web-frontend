@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { Menu } from './interfaces/menu.interface';
+import { INews } from './interfaces/news,inferface';
 import { IUser } from './interfaces/user.interface';
 import { LoggerService } from './services/logger/logger.service';
+import { MenuService } from './services/menu/menu.service';
+import { NewsService } from './services/news/news.service';
 import { UserService } from './services/user/user.service';
 
 @Component({
@@ -21,7 +24,7 @@ export class AppComponent {
   menu: Array<Menu> = [
     {
       name: 'Información',
-      router: '/'
+      router: '/informacion'
     },
     {
       name: 'Descarga',
@@ -29,25 +32,24 @@ export class AppComponent {
     },
     {
       name: 'Panel',
-      router: '/cpanel'
+      router: ''
     },
-    {
-      name: 'Foro',
-      router: '/foro'
-    },
-    // {
-    //   name: 'Usuario',
-    //   router: '/usuario'
-    // }
   ]
   backgroundImg: string = 'assets/imgs/311972.jpg'
   constructor(
     private logger: LoggerService,
-    private userService: UserService
-  ) {
+    private userService: UserService,
+    private menuService: MenuService
+    ) {
     this.getUserData()
-    this.getInfo()
   }
+scroll(ev: any) {
+  if(ev.srcElement.scrollTop > 100){
+    this.menuService.setTransparent(true)
+  } else {
+    this.menuService.setTransparent(false)
+  }
+}
 
   async getUserData() {
     this.userService.getUser()
@@ -72,4 +74,6 @@ export class AppComponent {
       this.logger.error(this.idLog, 'getInfo', { info: 'Error', error })
     }
   }
+
+  
 }

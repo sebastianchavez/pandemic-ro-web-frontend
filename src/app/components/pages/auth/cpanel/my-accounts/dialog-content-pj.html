@@ -1,0 +1,43 @@
+<h1>Personajes</h1>
+<table *ngFor="let d of data.pjs">
+    <tr>
+        <td>Nombre:</td>
+        <th>{{d.name}}</th>
+    </tr>
+    <tr>
+        <td>Job:</td>
+        <th>{{d.class! | job}}</th>
+    </tr>
+    <tr>
+        <td>Lvl:</td>
+        <th>{{d.base_level+'/'+d.job_level}}</th>
+    </tr>
+    <tr>
+        <td>Ubicación:</td>
+        <th>{{d.last_map+","+d.last_x+","+d.last_y}}</th>
+    </tr>
+    <tr>
+        <td>Str:</td>
+        <th>{{d.str}}</th>
+    </tr>
+    <tr>
+        <td>Agi:</td>
+        <th>{{d.agi}}</th>
+    </tr>
+    <tr>
+        <td>Vit:</td>
+        <th>{{d.vit}}</th>
+    </tr>
+    <tr>
+        <td>Int:</td>
+        <th>{{d.int}}</th>
+    </tr>
+    <tr>
+        <td>Dex:</td>
+        <th>{{d.dex}}</th>
+    </tr>
+    <tr>
+        <td>Luk:</td>
+        <th>{{d.luk}}</th>
+    </tr>
+</table>

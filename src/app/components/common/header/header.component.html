@@ -1,18 +1,23 @@
-<header>
-    <div class="card container-header ">
-        <div class="container-icons">
-            <button (click)="goToFb()">
-                <img src="assets/icons/logo-facebook.svg" alt="">
-            </button>
-            <button (click)="goToDiscord()">
-                <img src="assets/icons/logo-discord.svg" alt="">
-            </button>
-            <button (click)="goToInstagram()">
-                <img src="assets/icons/logo-instagram.svg" alt="">
-            </button>
-        </div>
-        <div class="container-logo">
-            <img src="assets/imgs/title.png" alt="">
+<header>   
+    <div class="carousel">
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let n of news">
+                <div class="picsum-img-wrapper animate__animated animate__fadeIn">
+                    <img [src]="n.image"  />
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+    <div class="container-cards">
+        <div class="container-fluid">
+            <div class="row">
+                <div *ngFor="let c of cards" class="col-md-3">
+                    <div class="card card-body animate__animated animate__fadeInUp">
+                        <h1>{{c.text}}</h1>
+                        <mat-icon class="pointer" (click)="goToPage(c.router)">{{c.icon}}</mat-icon>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>

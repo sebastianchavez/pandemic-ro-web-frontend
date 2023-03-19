@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Menu } from 'src/app/interfaces/menu.interface';
 import { IUser } from 'src/app/interfaces/user.interface';
 import { AlertService } from 'src/app/services/alert/alert.service';
+import { MenuService } from 'src/app/services/menu/menu.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -14,16 +15,26 @@ export class NavbarComponent implements OnInit {
   @Input() menu: Array<Menu> = []
   @Input() user?: IUser;
   state: boolean = false;
+  transparent: boolean = false;
+
   constructor(
     private router: Router,
     private alertService: AlertService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private menuService: MenuService
+    ) { }
 
   ngOnInit(): void {
+    this.menuService.getTransparent()
+      .subscribe(res => {
+        this.transparent = res
+      })
   }
 
   navigateToPage(path: string) {
-    this.router.navigate([path])
+    if(path != ''){
+      this.router.navigate([path])
+    }
   }
 
   changeState() {

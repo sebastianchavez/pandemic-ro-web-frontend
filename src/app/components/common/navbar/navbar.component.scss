@@ -1,10 +1,25 @@
 nav {
-    justify-content: space-around;
+    transition: all .5s ease;
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
     color: #FFF;
     font-size: 30px;
     background-color: #2C3A47 !important;
+    align-items: center;
+    width: 100%;
+    z-index: 999;
+    position: absolute;
+}
+
+.logo{
+    button {
+        color: #58B19F;
+        font-size: 1.5rem;
+        font-style: italic;
+        font-family: 'Inter';
+    }
+    padding-left: 3rem;
 }
 
 nav:active {
@@ -16,7 +31,6 @@ nav div {
 }
 
 .menu-link {
-
     cursor: pointer;
 }
 
@@ -56,6 +70,16 @@ nav div {
     border: none;
     height: 5rem;
 }
+
+.navbar-transparent {
+    transition: all .5s ease;
+    background-color: rgba(0, 0, 0, .3) !important;
+}
+
+.navbar-transparent:active {
+    background-color: rgba(0, 0, 0, .3) !important;
+}
+
 
 @media (max-width: 950px) {
     .menu-link button {

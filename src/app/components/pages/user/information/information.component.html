@@ -1,0 +1,111 @@
+
+<div class="container pb-5 pt-5 animate__animated animate__fadeInUp">
+    
+    <div class="header">
+        <div class="text-center mt-5">
+            <h1>Información</h1>
+        </div>
+        <p>
+            Pandemic Ro es un proyecto de desarrollo sin fines de lucro enfocado en el estudio del desarrollo video juegos y  la informática. Se busca aplicar las mejores prácticas del mundo de la informática al de Ragnarok Online, dando así una alta disponibilidad de los servicios ofrecidos ademas de una experiencia única para los usuarios.
+            Desarrollado 100% con tecnologías actuales y a la medida, asi mismo orientado a la innovación en un juego ya algo olvidado
+        </p>
+
+        <div class="text-center mt-5 pt-5">
+            <h1>Economía del servidor</h1>
+        </div>
+        <p>
+            En Pandemic Ro tenemos la filosofía de que todos los jugadores deben jugar en igualdad de condiciones. Por lo que se descartó el conseguir items por donación como el común de los servidores.
+            Aquí podrás conseguir items especiales ya sea conectandote diariamente, votando o participando en los diversos eventos automáticos o impartidos por los GM’s
+        </p>
+    </div>
+
+    <div class="container-economy">
+        <div class="row pt-5">
+            <div class="col-md-6 text-center mt-5">
+                <h2 class="subtitle-economy">Tickets</h2>
+                <div class="mt-4 mb-4">
+                    <img class="img-economy" src="assets/imgs/tickets.gif" alt="">
+                </div>
+                <p>
+                    Gana Event Tickets conectandote diariamente,
+                    votando por el servidor y/o participando en 
+                    eventos como invasión de porings, disguise,
+                    entre otros...
+                    Podrás comprar items costumes y algunos 
+                    consumibles.
+                </p>
+            </div>
+            <div class="col-md-6 text-center mt-5">
+                <h2 class="subtitle-economy">Coins</h2>
+                <div class="container-coins row mt-4 mb-4">
+                    <div class="col-md-4">
+                        <img class="img-economy" src="assets/imgs/bronze_coin.gif" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-economy" src="assets/imgs/silver_coin.gif" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-economy" src="assets/imgs/gold_coin.gif" alt="">
+                    </div>
+                </div>
+                <p>
+                    Consigue Bronze, Silver y Gold coin ya sea 
+                    conectandote diariamente, votando por el
+                    servidor y/o participando en diversos
+                    eventos.
+                    Podrás comprar hats con stats y algunos
+                    items premium.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-vote">
+        <h1>Puntos de canje</h1>
+        <p class="mt-5">
+            Vota por una vez al día por cada ranking y consigue puntos de votos, los cuales podrás canjear en el servidor por items, permisos o funcionalidades exclusivas del servidor.
+        </p>
+        <div class="row mt-5 pb-5">
+            <div class="col-md-4 text-center">
+                <div *ngIf="loading.rank1" class="container-loading mt-3">
+                    <div class="loading">
+                        Cargando...
+                    </div>
+                </div>
+                <a *ngIf="!loading.rank1" class="link-ranking mt-3 pointer" (click)="confirmVote(1, 'https://ragnatop.org/index.php?a=in&u=schavez-dev')"><img
+                        src="https://ragnatop.org/button.php?u=schavez-dev&buttontype=static"
+                        alt="RagnaTOP - Top Ragnarok Online en Español" /></a>
+            </div>
+            <div class="col-md-4 text-center">
+                <div *ngIf="loading.rank2" class="loading">
+                    Cargando...
+                </div>
+                <a *ngIf="!loading.rank2" class="link-ranking pointer" (click)="confirmVote(2, 'http://www.toprohispano.com/vote/index.php?id=1020')" target="_blank">
+                    <img src="http://www.toprohispano.com/images/boton4.png" border="0"></a>
+            </div>
+            <div class="col-md-4 text-center">
+                <div *ngIf="loading.rank3" class="loading ">
+                    Cargando...
+                </div>
+                <a *ngIf="!loading.rank3" class="link-ranking pointer" (click)="confirmVote(3, 'https://www.top100arena.com/category/ro?vote=99473')" title='Pandemic Ro'>
+                    <img src='https://www.top100arena.com/hit/99473/small' alt='Ragnarok private server'></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="section-bottom animate__animated animate__fadeInUp" [ngStyle]="{'background-image': 'url('+ backgroundImg +')'}">
+
+    <div class="container">
+        <div class="text-center">
+            <h1>Sobre el servidor</h1>
+        </div>
+        <div class="mt-5 text-center">
+            <p>
+                Servidor Pre-Renewal hosteado en Estados Unidos con una disponibilidad 24/7.
+                Rates 100x100x100x - Drop Cards normales 0.7% - Drop Cards MVP’s 0.05%
+                BG - WOE 1.0, 2.0 - Customs Npc’s - Eventos automáticos - Hats + stats
+            </p>
+        </div>
+    </div>
+</div>

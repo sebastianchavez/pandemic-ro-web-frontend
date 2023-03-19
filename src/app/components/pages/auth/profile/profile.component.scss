@@ -1,0 +1,91 @@
+:host{
+    align-self: center;
+    justify-self: center;
+    display: block;
+    min-height: 90vh;
+    background-color: #CAD3C8 !important;
+}
+
+.content{
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+.container-profile {
+    img {
+        height: 10rem;
+        width: 10rem;
+        border-radius: 50px;
+    }
+}
+
+h1 {
+    color: #2C3A47;
+    font-weight: 600;
+}
+
+.text-footer {
+    color: #2C3A47;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+h3{
+    color: #2C3A47;
+}
+
+.detail-profile{
+    h3 {
+        padding-left: 1rem;
+    }
+    margin-top: 3rem;
+}
+
+
+.container-prize{
+    display: flex;
+    flex-wrap: wrap;
+    mat-card {
+        margin: 1rem;
+    }
+}
+
+.container-title-prize{
+    color: #B33771;
+    text-align: center;
+}
+
+.container-title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.is-not-reclamed {
+    opacity: .3;
+}
+
+.tooltip-dark {
+    background: #000;
+}
+
+.container-footer{
+    text-align: center;
+    margin-top: 5rem;
+    color: white;
+    font-style: italic !important;
+}
+
+.prize {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    width: 9rem;
+}
+
+@media (max-width: 767px) {
+    .container-prize{
+        justify-content: center;
+    }
+}

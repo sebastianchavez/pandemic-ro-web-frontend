@@ -1,0 +1,42 @@
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3 mt-4">
+                <h1>Vota por el servidor</h1>
+                <div class="list">
+                    <label *ngIf="loading.rank1">Cargando...</label>
+                    <label *ngIf="!loading.rank1" (click)="confirmVote(1, 'https://ragnatop.org/index.php?a=in&u=schavez-dev')">Ragnatop</label>
+                    <label *ngIf="loading.rank2">Cargando...</label>
+                    <label *ngIf="!loading.rank2" (click)="confirmVote(2, 'http://www.toprohispano.com/vote/index.php?id=1020')">Toprohispano</label>
+                    <label *ngIf="loading.rank3">Cargando...</label>
+                    <label *ngIf="!loading.rank3" (click)="confirmVote(3, 'https://www.top100arena.com/category/ro?vote=99473')">Top100arena</label>
+                </div>
+            </div>
+            <div class="col-md-2 mt-4">
+                <h1>Instancias</h1>
+                <div class="list">
+                    <label for="">Endless Tower</label>
+                </div>
+            </div>
+            <div class="col-md-2 mt-4">
+                <h1>Links</h1>
+                <div class="list">
+                    <label routerLink="/">Inicio</label>
+                    <label routerLink="/informacion">Información</label>
+                    <label routerLink="/descargas">Descargas</label>
+                    <label routerLink="/cpanel/cuentas">Panel</label>
+                    <label for="">Usuario</label>
+                </div>
+            </div>
+            <div class="col-md-3 mt-4">
+                <h1>Redes Sociales</h1>
+                <div class="list">
+                    <label (click)="goToFb()">Facebook</label>
+                    <label (click)="goToInstagram()">Instagram</label>
+                    <label (click)="goToDiscord()">Discord</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

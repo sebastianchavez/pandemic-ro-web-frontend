@@ -1,0 +1,123 @@
+.title{
+    font: 400 24px/50px Roboto, "Helvetica Neue", sans-serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.subtitle-economy {
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+h2{
+    color: #2C3A47;
+}
+
+h1{
+    color: #2C3A47;
+}
+
+.img-economy{
+    height: 7rem;
+    width: 7rem;
+}
+
+.description {
+    font: 400 14px/32px Roboto, "Helvetica Neue", sans-serif;
+    color: #2C3A47;
+    font-weight: 500;
+    font-size: 1.8rem;
+    height: auto;
+}
+
+.fadeInUp {
+    opacity: 0;
+    margin-top: 5rem;
+    // transition: all .5s ease;
+    &.active {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+.title-prize {
+    color: #2C3A47;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.title-vote {
+    color: #2C3A47;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.section-bottom {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    overflow: auto;
+    height: 75rem;
+}
+
+.section-bottom .prize-img {
+    height: 7rem;
+    width: 7rem;
+    transition: all .5s ease;
+}
+
+.section-bottom .card {
+    cursor: pointer;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.container-prize {
+    height: 17rem;
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-vote {
+
+}
+
+.section-bottom .card:hover {
+    .prize-img{
+        transition: all .5s ease;
+        height: 10rem;
+        width: 10rem;
+    }
+}
+
+.container-instances {
+    margin-top: 6rem;
+    text-align: center;
+}
+
+.instance-description{
+    font-style: italic;
+}
+
+
+.link-ranking {
+    width: 10rem;
+
+    img {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-bottom {
+        height: 150rem;
+    }
+}

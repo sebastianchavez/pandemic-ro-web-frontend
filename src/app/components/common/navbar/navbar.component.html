@@ -1,6 +1,13 @@
-<nav [ngClass]="{'active': state}">
+<nav [ngClass]="{'active': state, 'navbar-transparent': transparent}" >
+    <div class="logo">
+        <button mat-button routerLink="/">PandemicRo</button>
+    </div>
     <div class="menu-link" [ngClass]="{'active': state}">
-        <button *ngFor="let m of menu" (click)="navigateToPage(m.router)" mat-button>{{m.name}}</button>
+        <button *ngFor="let m of menu" (click)="navigateToPage(m.router)" [matMenuTriggerFor]="m.name == 'Panel' ? panel : null " mat-button>{{m.name}}</button>
+        <mat-menu class="btn-dark" #panel="matMenu" yPosition="above">
+            <button mat-menu-item routerLink="/cpanel/cuentas">Mis cuentas</button>
+            <!-- <button mat-menu-item routerLink="/cpanel/ranking">Ranking</button> -->
+        </mat-menu>
         <button *ngIf="!user" mat-button [matMenuTriggerFor]="aboveMenu">Usuario</button>
         <mat-menu class="btn-dark" #aboveMenu="matMenu" yPosition="above">
             <button mat-menu-item routerLink="/login">Autenticar usuario</button>

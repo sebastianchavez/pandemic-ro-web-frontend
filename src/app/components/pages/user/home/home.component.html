@@ -1,0 +1,125 @@
+<div class="container animate__animated animate__fadeInUp">
+    <div class="text-center mt-5 pt-4 " id="welcome">
+        <h1 class="title mb-4">Bienvenido a Pandemic Ro</h1>
+        <div class="mt-5 description">
+            Esperemos disfrutes tu estadía en Pandemic Ro, servidor 100% gratuito y sin fines de lucro en donde se busca aplicar las mejores
+            prácticas de la ingeniería de software en el mundo de Ragnarok Online, por lo que estamos constantemente actualizando el servidor
+            y las aplicaciones que conviven con el. 
+        </div>
+    </div>
+    <div class="text-center mt-5 pt-4 " id="economy">
+        <h1 class="mt-5 subtitle">Economía del servidor</h1>
+    </div>
+    <div class="mt-5 " id="economyDescription">
+        <div class="row pt-5">
+            <div class="col-md-6 text-center mt-5">
+                <h2 class="subtitle-economy">Tickets</h2>
+                <div class="mt-4 mb-4">
+                    <img class="img-economy" src="assets/imgs/tickets.gif" alt="">
+                </div>
+                <div class="description p-3">
+                    Gana Event Tickets conectandote diariamente,
+                    votando por el servidor y/o participando en 
+                    eventos como invasión de porings, disguise,
+                    entre otros...
+                    Podrás comprar items costumes y algunos 
+                    consumibles.
+                </div>
+            </div>
+            <div class="col-md-6 text-center mt-5">
+                <h2 class="subtitle-economy">Coins</h2>
+                <div class="container-coins row mt-4 mb-4">
+                    <div class="col-md-4">
+                        <img class="img-economy" src="assets/imgs/bronze_coin.gif" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-economy" src="assets/imgs/silver_coin.gif" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-economy" src="assets/imgs/gold_coin.gif" alt="">
+                    </div>
+                </div>
+                <div class="description p-3">
+                    Consigue Bronze, Silver y Gold coin ya sea 
+                    conectandote diariamente, votando por el
+                    servidor y/o participando en diversos
+                    eventos.
+                    Podrás comprar hats con stats y algunos
+                    items premium.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5 animate__animated animate__fadeInUp" id="events">
+    <app-events 
+        [events]="events" 
+        [serverDate]="serverDate"
+    ></app-events>
+</div>
+
+
+<section class="section-bottom animate__animated animate__fadeInUp" [ngStyle]="{'background-image': 'url('+ backgroundImg +')'}">
+
+            <div class="container">
+                <div class="row ">
+                    <div *ngFor="let n of prizes" class="col-md-3">
+                        <div class="card card-body container-prize text-center"  [matTooltip]="n.description" matTooltipPosition="above"  matTooltipClass="tooltip">
+                            <h2 class="title-prize">{{n.title}}</h2>
+                            <img class="prize-img" [src]="n.img" alt="">
+                        </div>  
+                    </div>
+                </div>
+            </div>
+    
+            <div class="container container-instances">
+                <h1 class="title mb-5">Instancias</h1>
+                <div class="row">
+                    <div *ngFor="let instance of instances" class="col-md-3">
+                        <mat-card>
+                            <img mat-card-image [src]="instance.img">
+                            <mat-card-content>
+                                <h2 class="title-prize">{{instance.title}}</h2>
+                              <p class="instance-description">
+                                {{instance.description}}
+                              </p>
+                            </mat-card-content>
+                          </mat-card>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card card-body container-vote">
+                    <div class="text-center mt-3 mb-4">
+                        <h2 class="title-vote">Vota por el servidor y consigue puntos de canje</h2>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-4 text-center">
+                            <div *ngIf="loading.rank1" class="loading mt-3">
+                                Cargando...
+                            </div>
+                            <a *ngIf="!loading.rank1" class="link-ranking mt-3 pointer" (click)="confirmVote(1, 'https://ragnatop.org/index.php?a=in&u=schavez-dev')"><img
+                                    src="https://ragnatop.org/button.php?u=schavez-dev&buttontype=static"
+                                    alt="RagnaTOP - Top Ragnarok Online en Español" /></a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div *ngIf="loading.rank2" class="loading mt-3">
+                                Cargando...
+                            </div>
+                            <a *ngIf="!loading.rank2" class="link-ranking pointer" (click)="confirmVote(2, 'http://www.toprohispano.com/vote/index.php?id=1020')" target="_blank">
+                                <img src="http://www.toprohispano.com/images/boton4.png" border="0"></a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div *ngIf="loading.rank3" class="loading mt-3">
+                                Cargando...
+                            </div>
+                            <a *ngIf="!loading.rank3" class="link-ranking pointer" (click)="confirmVote(3, 'https://www.top100arena.com/category/ro?vote=99473')" title='Pandemic Ro'>
+                                <img src='https://www.top100arena.com/hit/99473/small' alt='Ragnarok private server'></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</section>

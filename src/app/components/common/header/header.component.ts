@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { INews } from 'src/app/interfaces/news,inferface';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @Input() news: INews[] = []
+
+  cards: {
+    text: string;
+    icon: string;
+    router: string;
+  }[] = [
+    {
+      text: 'Información',
+      icon: 'info_outline',
+      router: 'informacion'
+    },
+    {
+      text: 'Eventos Automáticos',
+      icon: 'event',
+      router: 'eventos'
+    },
+    {
+      text: 'Actualizaciones',
+      icon: 'upgrade',
+      router: 'actualizacion'
+    },
+    {
+      text: 'Seguridad',
+      icon: 'security',
+      router: 'seguridad'
+    }
+  ]
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  goToPage(path: string){
+    this.router.navigateByUrl(path)
   }
 
   goToFb() {

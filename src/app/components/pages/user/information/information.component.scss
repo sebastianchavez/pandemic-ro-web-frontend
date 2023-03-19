@@ -1,0 +1,135 @@
+.info {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        color: white;
+        font-size: 1.3rem;
+    }
+}
+
+.grid-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+}
+
+.info-server {
+    padding: 4rem;
+    table {
+        font-size: 1.2rem;
+    }
+}
+
+.woe-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem 0px;
+
+    img {
+        max-width: 80%;
+    }
+}
+
+h1 {
+    font: 400 24px/50px Roboto, "Helvetica Neue", sans-serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: #2C3A47;
+}
+
+p{
+    text-align: center;
+    margin-top: 3rem;
+    font-weight: 700;
+    color: #2C3A47;
+    font-size: 1.2rem;
+}
+
+tbody {
+    width: 100%;
+    color: white;
+    font-size: 1.2rem;
+
+    tr {
+        height: 5rem !important;
+    }
+}
+
+.link-ranking {
+    width: 10rem;
+
+    img {
+        width: 10rem;
+    }
+}
+
+.container-woe {
+    display: flex;
+    justify-content: space-around;
+    img {
+        width: 40%;
+    }
+}
+
+.woe-info-detail{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    padding-left: 2rem;
+    width: 15rem;
+}
+
+.woe-title {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.woe-date{
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    margin-left: -2rem;
+    text-align: center;
+}
+
+.container-vote {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+
+.section-bottom{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    overflow: auto;
+    padding: 5rem 0;
+}
+
+@media (max-width: 1000px) {
+    .info {
+        padding: 1rem;
+    }
+
+    .info-server {
+        padding: 1rem
+    }
+
+    .grid-info {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
