@@ -94,6 +94,7 @@ nav div {
         color: transparent;
 
         &.active {
+            margin-top: 3rem;
             width: 100%;
             display: flex !important;
             justify-content: center;
@@ -129,6 +130,14 @@ nav div {
         &.active {
             display: none;
         }
+    }
+    .logo {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        width: 100%;
+        text-align: -webkit-center;
     }
 }
 

@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit {
         password,
         user, 
         genre,
-        ip: ip?.toString() || '0.0.0.0'
+        ip: ip?.ip.toString() || '0.0.0.0'
       }
       const response = await this.userService.register(request)
       this.logger.log(this.idLog, 'onSubmit', { info: 'Success', response })

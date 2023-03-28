@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     rank3: false
   }
   events: IEvent[] = [];
-  today: string = new Date().getDay().toString()
+  today: number = new Date().getDay()
   serverDate: Date = new Date();
   hour: number = new Date().getHours() * 100
   backgroundImg: string = 'assets/imgs/background_home.jpg'
@@ -91,6 +91,7 @@ export class HomeComponent implements OnInit {
     try {
       const response = await this.eventService.getEvents()
       this.serverDate = new Date(response.serverDate.split('.')[0])
+      this.today = this.serverDate.getDay()
       this.hour = this.serverDate.getHours() * 100
 
       const eventList: IEvent[] = [] 
@@ -98,8 +99,8 @@ export class HomeComponent implements OnInit {
       let maxCount = 8
 
       await Promise.all(response.events.map((x: IEvent, i: number) => {
-        if(x.days.toString().includes(this.today)){
-          if(x.endHour >= this.hour && count < maxCount){
+        if(x.days.toString().includes(this.today.toString())){
+          if((x.endHour >= this.hour) && count < maxCount){
             count++
             let start = x.startHour.toString()
             let end = x.endHour.toString()
@@ -119,7 +120,7 @@ export class HomeComponent implements OnInit {
         await Promise.all(response.events.map((x: IEvent, i: number) => {
           if(x.days.toString().includes((Number(this.today)+1).toString())){
             if(count < maxCount){
-              count++
+            count++
               let start = x.startHour.toString()
               let end = x.endHour.toString()
               x.hour = `${start.length > 1 ? `Mañana de ${start.substring(0,start.length-2) + ':' + start.substring(start.length-2)}` : `Mañana de 00:00`} ${(Number(end) - Number(start)) > 0 ? ` hasta las ${end.substring(0,end.length-2) + ':' + end.substring(end.length-2)} hora server`: 'hora server' }`
